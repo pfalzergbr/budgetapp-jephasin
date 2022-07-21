@@ -1,0 +1,12 @@
+{
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "eslint:recommended",
+      "prettier"
+    ],
+    "rules": {
+        "semi": ["warn", "always"],
+        "eqeqeq": "warn"
+    }
+  }

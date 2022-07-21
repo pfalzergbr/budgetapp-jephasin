@@ -3,19 +3,19 @@ import { AppContext } from "../context/AppContext";
 
 const Remainder = () => {
     const { expenses, budget } = useContext(AppContext);
-    const totalExp = expenses.reduce((total, item) => {
+    const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.theCost);
     }, 0);
 
-    const alertType = totalExp < budget ? 'alert-success' : 'alert-danger';
+    const alertType = totalExpenses < budget ? 'alert-success' : 'alert-danger';
 
     return (
         <div className={`alert ${alertType}`}>
             <span>
-                Remaining: ${budget - totalExp}
+                Remaining: ${budget - totalExpenses}
             </span>
         </div>
-    )
-}
+    );
+};
 
 export default Remainder;

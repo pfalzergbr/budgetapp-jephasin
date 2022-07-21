@@ -6,8 +6,5 @@
     "main.978c18e4.css.map": "/budgetapp/static/css/main.978c18e4.css.map",
     "main.d1343395.js.map": "/budgetapp/static/js/main.d1343395.js.map"
   },
-  "entrypoints": [
-    "static/css/main.978c18e4.css",
-    "static/js/main.d1343395.js"
-  ]
+  "entrypoints": ["static/css/main.978c18e4.css", "static/js/main.d1343395.js"]
 }
