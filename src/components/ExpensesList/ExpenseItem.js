@@ -7,7 +7,7 @@ const ExpenseItem = ({ name, cost, id }) => {
 
   const onDeleteExpense = () => {
     dispatch({
-      type: 'DELETE_EXP',
+      type: 'DELETE_EXPENSE',
       payload: id,
     });
   };

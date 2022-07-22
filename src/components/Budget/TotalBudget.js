@@ -32,8 +32,10 @@ const TotalBudget = ({ budget, dispatch }) => {
             onChange={(event) => setUpdatedBudget(event.target.value)}
             style={{
               display: 'inline-block',
-              marginRight: 'auto',
-              width: '48px',
+              // marginRight: 'auto',
+              flex: 1,
+              marginRight: '0.5rem',
+              border: 'none',
             }}
           ></input>
         ) : (
@@ -48,7 +50,7 @@ const TotalBudget = ({ budget, dispatch }) => {
           </span>
         )}
         {isEditing ? (
-          <button className="btn btn-primary" onClick={onSave} button>
+          <button className="btn btn-primary" onClick={onSave}>
             Save
           </button>
         ) : (
