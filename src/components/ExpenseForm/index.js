@@ -7,21 +7,21 @@ const ExpenseForm = () => {
   const { dispatch } = useContext(AppContext);
 
   const [name, setName] = useState('');
-  const [theCost, setTheCost] = useState('');
+  const [cost, setCost] = useState('');
 
   const onSubmit = (event) => {
     event.preventDefault();
     const expense = {
       id: uuid(),
       name: name,
-      theCost: parseInt(theCost),
+      cost: Number(cost),
     };
     dispatch({
       type: 'ADD_EXPENSE',
       payload: expense,
     });
     setName('');
-    setTheCost('');
+    setCost('');
   };
 
   return (
@@ -40,8 +40,8 @@ const ExpenseForm = () => {
               <Input
                 name="cost"
                 label="Cost"
-                value={theCost}
-                onChange={(event) => setTheCost(event.target.value)}
+                value={cost}
+                onChange={(event) => setCost(event.target.value)}
               />
               <div className="col-sm">
                 <button type="submit" className="btn btn-primary">

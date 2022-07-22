@@ -16,7 +16,7 @@ const ExpensesList = () => {
                 key={expense.id} // look into keys in rendering list for React. React is confused if it doesn't get a key on mapped items.
                 id={expense.id}
                 name={expense.name}
-                cost={expense.theCost}
+                cost={expense.cost}
               />
             ))}
           </ul>
