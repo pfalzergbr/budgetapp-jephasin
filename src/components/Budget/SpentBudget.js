@@ -4,14 +4,15 @@ import { AppContext } from '../../context/AppContext';
 
 const SpentBudget = () => {
   const { expenses } = useContext(AppContext);
-  const totalExp = expenses.reduce((total, item) => {
-    return (total = total + item.theCost);
+
+  const spentBudget = expenses.reduce((total, item) => {
+    return (total = total + item.cost);
   }, 0);
 
   return (
     <div className="col-sm">
       <div className="alert alert-primary">
-        <span>Spent: ${totalExp}</span>
+        <span>Spent: ${spentBudget}</span>
       </div>
     </div>
   );
