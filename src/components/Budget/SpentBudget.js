@@ -1,18 +1,11 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../../context/AppContext';
-// import { AppContext } from '../context/AppContext';
-
-const SpentBudget = () => {
-  const { expenses } = useContext(AppContext);
-
-  const spentBudget = expenses.reduce((total, item) => {
-    return (total = total + item.cost);
-  }, 0);
-
+const SpentBudget = ({ totalExpenses }) => {
   return (
     <div className="col-sm">
-      <div className="alert alert-primary">
-        <span>Spent: ${spentBudget}</span>
+      <div
+        className="alert alert-primary"
+        style={{ display: 'flex', height: '72px', alignItems: 'center' }}
+      >
+        <span>Spent: ${totalExpenses}</span>
       </div>
     </div>
   );

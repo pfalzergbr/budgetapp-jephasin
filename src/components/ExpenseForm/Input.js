@@ -2,8 +2,8 @@
 
 const Input = ({ name, label, value, onChange }) => {
   return (
-    <div className="col-sm">
-      <label form={name}>{label}</label>
+    <div className="col-sm" style={{marginBottom: "0.5rem"}}>
+      <label form={name} style={{marginBottom: "0.25rem"}}>{label}</label>
       <input
         required
         type="text"

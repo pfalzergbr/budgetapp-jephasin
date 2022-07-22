@@ -1,57 +1,62 @@
-import React, { useContext, useState } from 'react';
-import { AppContext } from '../../context/AppContext';
+import React, { useState } from 'react';
 
-const TotalBudget = () => {
-  const { budget, dispatch } = useContext(AppContext);
+const TotalBudget = ({ budget, dispatch }) => {
+  const [updatedBudget, setUpdatedBudget] = useState(budget);
+  const [isEditing, setIsEditing] = useState(false);
 
-  const [theBudget, setBudget] = useState(budget);
-  const [adjust, setAdjust] = useState(theBudget);
-  const [inputClass, setInputClass] = useState('display-none');
-  const [buttonSave, setButtonSave] = useState('display-none');
-  const [buttonEdit, setButtonEdit] = useState('btn btn-primary');
-
-  const handleEdit = () => {
-    setAdjust(true);
-    setInputClass('');
-    setButtonEdit('display-none');
-    setButtonSave('btn btn-primary');
+  const onEdit = () => {
+    setIsEditing(true);
   };
-  const handleSave = (event) => {
-    setInputClass('display-none');
-    setAdjust(theBudget);
-    setButtonEdit('btn btn-primary');
-    setButtonSave('display-none');
 
+  const onSave = (event) => {
     event.preventDefault();
     dispatch({
       type: 'UPDATE_BUDGET',
-      payload: theBudget,
+      payload: updatedBudget,
     });
+
+    setIsEditing(false);
   };
 
   return (
     <div className="col-sm">
-    <div className="alert alert-secondary">
-      <span>
-        Budget: ${theBudget && adjust}
-        <input
-          type="text"
-          value={theBudget}
-          className={inputClass}
-          onChange={(event) => setBudget(event.target.value)}
-        ></input>
-      </span>
-      <span style={{ float: 'right' }}>
-        <button className={buttonEdit} onClick={handleEdit}>
-          Edit
-        </button>
-      </span>
-      <span style={{ float: 'right' }}>
-        <button className={buttonSave} onClick={handleSave}>
-          Save
-        </button>
-      </span>
-    </div>
+      <div
+        className="alert alert-secondary"
+        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}
+      >
+        <span>Budget: $</span>
+        {isEditing ? (
+          <input
+            type="text"
+            value={updatedBudget}
+            onChange={(event) => setUpdatedBudget(event.target.value)}
+            style={{
+              display: 'inline-block',
+              marginRight: 'auto',
+              width: '48px',
+            }}
+          ></input>
+        ) : (
+          <span
+            style={{
+              display: 'inline-block',
+              marginRight: 'auto',
+              width: '48px',
+            }}
+          >
+            {updatedBudget}
+          </span>
+        )}
+        {isEditing ? (
+          <button className="btn btn-primary" onClick={onSave} button>
+            Save
+          </button>
+        ) : (
+          <button className="btn btn-primary" onClick={onEdit}>
+            Edit
+          </button>
+        )}
+      </div>
     </div>
   );
 };

@@ -43,7 +43,7 @@ const ExpenseForm = () => {
                 value={cost}
                 onChange={(event) => setCost(event.target.value)}
               />
-              <div className="col-sm">
+              <div className="col-sm" style={{marginTop: "1rem"}}>
                 <button type="submit" className="btn btn-primary">
                   Save
                 </button>
