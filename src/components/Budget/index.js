@@ -14,6 +14,7 @@ const Budget = () => {
   const totalExpenses = expenses.reduce((total, item) => {
     return (total = total + item.cost);
   }, 0);
+  
   const remainingBudget = budget - totalExpenses;
 
   return (

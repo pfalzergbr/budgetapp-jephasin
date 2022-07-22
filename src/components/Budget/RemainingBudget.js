@@ -1,6 +1,6 @@
 
 const RemainingBudget = ({ remainingBudget}) => {
-  const alertType = remainingBudget < 0 ? 'alert-success' : 'alert-danger';
+  const alertType = remainingBudget > 0 ? 'alert-success' : 'alert-danger';
 
   return (
     <div className="col-sm">

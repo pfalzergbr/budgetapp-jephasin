@@ -27,7 +27,7 @@ const TotalBudget = ({ budget, dispatch }) => {
         <span>Budget: $</span>
         {isEditing ? (
           <input
-            type="text"
+            type="number"
             value={updatedBudget}
             onChange={(event) => setUpdatedBudget(event.target.value)}
             style={{

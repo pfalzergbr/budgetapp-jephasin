@@ -3,7 +3,7 @@ import { AppContext } from '../../context/AppContext';
 import ExpenseItem from './ExpenseItem';
 
 const ExpensesList = () => {
-  const { expenses } = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   return (
     <>
@@ -11,7 +11,7 @@ const ExpensesList = () => {
       <div className="row mt-3">
         <div className="col-sm">
           <ul className="list-group">
-            {expenses.map((expense) => (
+            {state.expenses.map((expense) => (
               <ExpenseItem
                 key={expense.id} // look into keys in rendering list for React. React is confused if it doesn't get a key on mapped items.
                 id={expense.id}
